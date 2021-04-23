@@ -12,7 +12,7 @@
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/v4-shims.css">
-    <link rel="stylesheet" href="css/styles.css" >
+    <link rel="stylesheet" href="./css/styles.css" >
 
     <title>Hello, world!</title>
 </head>
@@ -30,17 +30,17 @@
             <div class="collapse navbar-collapse" id="navbarColor03">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="index.html">veterinarias<span
+                        <a class="nav-link" href="/index.html">Mascotas<span
                                 class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="veterinarias.html">Veterinari@s</a>
+                        <a class="nav-link" href="/veterinarios.html">Veterinari@s</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="consultas.html">Consultas</a>
+                        <a class="nav-link" href="/consultas.html">Consultas</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="duenos.html">Dueños</a>
+                        <a class="nav-link" href="/duenos.html">Dueños</a>
                     </li>
                 </ul>
                 <form class="form-inline">
@@ -53,25 +53,29 @@
 
 
         <div class="actions-menu">
-            <h1>Veterinarios</h1>
+            <h1>Mascotas</h1>
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
             Nuevo
         </button>
+        <div class="alert alert-danger alert-dismissible" role="alert">
+            <strong>Oops!</strong> Algo hicimos mal, por favor vuelve a intentarlo!.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
         </div>
 
         <table class="table table-stripped table-hover">
             <thead class="thead-dark">
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Identificacion</th>
-                  <th scope="col">País</th>
-                  <th scope="col">Nombre</th>
-                  <th scope="col">Apellido</th>
-                  <th scope="col">Acciones</th>
+                    <th scope="col">Tipo</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Dueño</th>
                     <th scope="col"></th>
                 </tr>
             </thead>
-            <tbody id="lista-veterinarias">
+            <tbody id="lista-mascotas">
                 
             </tbody>
         </table>
@@ -84,7 +88,7 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalCenterTitle">Nueva Veterinario</h5>
+                <h5 class="modal-title" id="exampleModalCenterTitle">Nueva veterinaria</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="btn-x">
                 <span aria-hidden="true">&times;</span>
                 </button>
@@ -92,34 +96,35 @@
             <div class="modal-body">
                 <form id="form">
                     <input type="hidden" id="indice" >
-                    <div class="form-row">  
-        <div class="col">
-            <input type="text" id="identificacion" class="form-control" placeholder="identificacion" aria-label="Identificacion">
-        </div>
+                    <div class="form-row">
+                        <div class="col">
+                            <select id="tipo" class="form-control">
+                                <option>Tipo</option>
+                                <option>Perro</option>
+                                <option>Gato</option>
+                                <option>Pajaro</option>
+                                <option>Pez</option>
+                                <option>Otro</option>
+                            </select>
+                        </div>
+                    </div>
 
-        <br>
-
-        <div class="col">
-            <input type="text" id="nombre" class="form-control" placeholder="nombre" aria-label="Nombre">
-        </div>
-
-        <br>
-        <div class="col">
-            <input type="text" id="apellido" class="form-control" placeholder="apellido" aria-label="Apellido">
-        </div>
-
-        <br>
-        <div class="col">
-            <select class="form-control" id="pais">
-            <option>País</option>
-            <option>México</option>
-            <option>Perú</option>
-            <option>Colombia</option>
-            <option>EU</option>
-            <option>Otro</option>
-            </select>
-        </div>
-            </div> 
+                    <br>
+                    <div class="form-row">
+                        <div class="col">
+                        <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Nombre">
+                        </div>
+                    <div class="col">
+                        <select class="form-control" id="dueno">
+                            <option>Propietario</option>
+                            <option>Nora</option>
+                            <option>Melisa</option>
+                            <option>Karen</option>
+                            <option>Lizbeth</option>
+                            <option>Otro</option>
+                        </select>
+                    </div>
+                    </div>
 
             </form>
             </div>
@@ -133,26 +138,28 @@
 
 
 
-        <!-- MODAL PARA ELIMINAR-->
-        <div class="modal fade" data-backdrop="static" id="exampleModalCenter2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalCenterTitle">Mensaje de confirmación</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="btn-x2">
-                <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <p>¿Desea eliminar este Veterinario?</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btn-cerrar2">Cerrar</button>
-                <button type="button" class="btn btn-primary" data-dismiss="modal" id="btn-eliminar2">Eliminar</button>
-            </div>
-            </div>
-            </div>
-            </div>
+
+
+    <!-- MODAL PARA ELIMINAR-->
+    <div class="modal fade" data-backdrop="static" id="exampleModalCenter2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalCenterTitle">Mensaje de confirmación</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="btn-x2">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <p>¿Desea eliminar esa mascota?</p>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btn-cerrar2">Cerrar</button>
+            <button type="button" class="btn btn-primary" data-dismiss="modal" id="btn-eliminar2">Eliminar</button>
+        </div>
+        </div>
+        </div>
+        </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
@@ -166,7 +173,7 @@
         crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.13.0/js/all.js"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.13.0/js/v4-shims.js"></script>
-    <script src="js/veterinarias.js"></script>
+    <script src="js/mascotas.js"></script>
 </body>
 
 </html>
